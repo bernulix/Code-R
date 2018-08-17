@@ -1,0 +1,16 @@
+####################################################################
+#### PROGAMACION taskschedule EN R PARA PROGRAMAR UN JOB         ###
+####################################################################
+# fuente codigo
+# https://github.com/bnosac/taskscheduleR
+
+# Instalar Paquetes
+install.packages("taskscheduleR")
+
+# cargar librerrias
+library(taskscheduleR)
+
+## Configurando Tarea, se debe dejar el archivo en el directorio de R -> carpeta extdata
+myscript <- system.file("extdata", "nombre.R", package = "taskscheduleR")
+taskscheduler_create(taskname = "nombre", rscript = myscript, 
+                     schedule = "DAILY", starttime = "09:10", startdate = format(Sys.Date()+1, "%d/%m/%Y"))
